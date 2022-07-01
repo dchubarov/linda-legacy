@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!--
+  ~ TWOWLS.ORG PROPRIETARY/CONFIDENTIAL
+  ~
+  ~ This file is subject to the terms and conditions defined in
+  ~ file 'LICENSE.txt', which is part of this source code package.
+  -->
+<l-system xmlns="http://chubarov.net/Lindenmayer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://chubarov.net/Lindenmayer lindenmayer.xsd"
+    version="1.0">
+    
+    <description>Sierpinski Triangle with angle deviation</description>
+
+    <options>
+        <option name="defaultOrder">10</option>
+        <option name="turtle.turnAngle">60</option>
+    </options>
+    
+    <rules axiom="A">
+        <rule symbol="A" mean="F">B-A-B</rule>
+        <rule symbol="B" mean="F">A+B+A</rule>
+    </rules>
+    
+    <deviations>
+        <deviation target="angle" class="org.twowls.lab.legacy.linde.render.ConstantAngleDeviator">
+            <param name="deviationCW">0.0</param>
+            <param name="deviationCCW">0.5</param>
+        </deviation>
+    </deviations>
+</l-system>

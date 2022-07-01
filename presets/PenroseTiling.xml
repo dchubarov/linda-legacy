@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!--
+  ~ TWOWLS.ORG PROPRIETARY/CONFIDENTIAL
+  ~
+  ~ This file is subject to the terms and conditions defined in
+  ~ file 'LICENSE.txt', which is part of this source code package.
+  -->
+<l-system xmlns="http://chubarov.net/Lindenmayer" version="1.0">
+    <description>Penrose Tiling</description>
+    <rules axiom="[7]++[7]++[7]++[7]++[7]">
+        <rule symbol="1" mean="F">0</rule>
+        <rule symbol="6">81++91----71[-81----61]++</rule>
+        <rule symbol="7">+81--91[---61--71]+</rule>
+        <rule symbol="8">-61++71[+++81++91]-</rule>
+        <rule symbol="9">--81++++61[+91++++71]--71</rule>
+    </rules>
+    <options>
+        <option name="turtle.turnAngle">36</option>
+        <option name="defaultOrder">6</option>
+    </options>
+</l-system>

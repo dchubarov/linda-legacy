@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ TWOWLS.ORG PROPRIETARY/CONFIDENTIAL
+  ~
+  ~ This file is subject to the terms and conditions defined in
+  ~ file 'LICENSE.txt', which is part of this source code package.
+  -->
+<xs:schema targetNamespace="http://chubarov.net/Lindenmayer"
+    xmlns:ls="http://chubarov.net/Lindenmayer" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    elementFormDefault="qualified">
+
+    <xs:complexType name="option">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="name" type="xs:string" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="optionList">
+        <xs:sequence>
+            <xs:element name="option" type="ls:option" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="rule">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+		        <xs:attribute name="symbol" use="required">
+		            <xs:simpleType>
+		                <xs:restriction base="xs:string">
+		                    <xs:length value="1" />
+		                </xs:restriction>
+		            </xs:simpleType>
+		        </xs:attribute>
+		        <xs:attribute name="mean" use="optional">
+		            <xs:simpleType>
+		                <xs:restriction base="xs:string">
+		                    <xs:length value="1" />
+		                </xs:restriction>
+		            </xs:simpleType>
+		        </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="ruleList">
+        <xs:sequence>
+            <xs:element name="rule" type="ls:rule" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="axiom" type="xs:string" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="deviationParameter">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="name" type="xs:string" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+        
+    <xs:complexType name="deviation">
+        <xs:sequence>
+            <xs:element name="param" type="ls:deviationParameter" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="target" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="angle" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="class" type="xs:string" use="required" />
+    </xs:complexType>
+    
+    <xs:complexType name="deviationList">
+        <xs:sequence>
+            <xs:element name="deviation" type="ls:deviation" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="l-system">
+        <xs:all>
+            <xs:element name="description" type="xs:string" minOccurs="0" />
+            <xs:element name="options" type="ls:optionList" minOccurs="0" />
+            <xs:element name="rules" type="ls:ruleList" />
+            <xs:element name="deviations" type="ls:deviationList" minOccurs="0" />
+        </xs:all>
+        <xs:attribute name="version" type="xs:string" use="required" />
+    </xs:complexType>
+    
+    <xs:element name="l-system" type="ls:l-system" />
+</xs:schema>

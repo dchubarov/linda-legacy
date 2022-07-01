@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!--
+  ~ TWOWLS.ORG PROPRIETARY/CONFIDENTIAL
+  ~
+  ~ This file is subject to the terms and conditions defined in
+  ~ file 'LICENSE.txt', which is part of this source code package.
+  -->
+<l-system xmlns="http://chubarov.net/Lindenmayer" version="1.0">
+    <description>Bubbles (d. chubarov)</description>
+    <rules axiom="X">
+        <rule symbol="X" mean="F">XX+>X</rule>
+    </rules>
+    <options>
+        <option name="defaultOrder">9</option>
+        <option name="turtle.initialAngle">270</option>
+        <option name="turtle.turnAngle">21</option>
+        <option name="turtle.growFactor">2</option>
+        <option name="background">#cccccc</option>
+        <option name="foreground">#0000ed</option>
+    </options>
+</l-system>

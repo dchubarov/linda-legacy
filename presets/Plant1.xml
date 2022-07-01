@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!--
+  ~ TWOWLS.ORG PROPRIETARY/CONFIDENTIAL
+  ~
+  ~ This file is subject to the terms and conditions defined in
+  ~ file 'LICENSE.txt', which is part of this source code package.
+  -->
+<l-system xmlns="http://chubarov.net/Lindenmayer" version="1.0">
+<rules axiom="X">
+    <rule symbol="X" mean="F">Y-[[X]+X]+Y[+YX]-X</rule>
+    <rule symbol="Y" mean="F">YY</rule>
+</rules>
+<options>
+    <option name="defaultOrder">6</option>
+    <option name="turtle.turnAngle">25</option>
+    <option name="turtle.initialAngle">65</option>
+    <option name="turtle.growFactor">0.45</option>
+</options>
+</l-system>
